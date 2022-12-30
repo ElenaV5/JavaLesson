@@ -9,10 +9,23 @@ public class MethodPractice {
         double num1 = getNumber(); //просим ввести 1е число
         System.out.println("Введите второе число:");
         double num2 = getNumber(); //просим ввести 2е число
-        System.out.println("Выберите операцию: 1+, 2-, 3*, 4/");
+        System.out.println("Выберите операцию: 1+, 2-, 3*, 4/, 5+%, 6-%");
         char operation = getOperation(); //просим ввести операцию 1-4
         double result = calc(num1, num2, operation); //считаем
-        System.out.println("Результат: " + result); //Выводим результат
+        //System.out.println("Результат: " + result); //Выводим результат
+        if (operation == '+'){
+            System.out.println(num1 + " + " + num2 + " = " + result);
+        } if (operation == '-'){
+            System.out.println(num1 + " - " + num2 + " = " + result);
+        } if (operation == '*'){
+            System.out.println(num1 + " * " + num2 + " = " + result);
+        } if (operation == '/'){
+            System.out.println(num1 + " / " + num2 + " = " + result);
+        } if (operation == '5'){
+            System.out.println(num1 + " + " + num2 + "% = " + result);
+        } if (operation == '6'){
+            System.out.println(num1 + " - " + num2 + "% = " + result);
+        }
 
         /*int[] a = {10,15,20,75,30};
         writeArray(a);
@@ -32,12 +45,16 @@ public class MethodPractice {
                 return num1*num2;
             case '/':
                 return num1/num2;
+            case '5':
+                return num1*(1+num2/100);
+            case '6':
+                return num1-(num1*(num2/100));
             default: return 0;
         }
     }
 
     private static char getOperation() {
-        Scanner in = new Scanner(System.in); // 1+, 2-, 3*, 4/
+        Scanner in = new Scanner(System.in); // 1+, 2-, 3*, 4/, 5+%, 6-%
         switch (in.nextInt()){
             case 1:
                 return '+';
@@ -47,6 +64,10 @@ public class MethodPractice {
                 return '*';
             case 4:
                 return '/';
+            case 5:
+                return '5';
+            case 6:
+                return '6';
             default: return '+';
         }
     }
